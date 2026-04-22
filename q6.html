@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How Long Americans Think a $25M Jackpot Would Last</title>
+
+<style>
+  :root{
+    --bg:#f2f4f7;
+    --card:#f7f8fb;
+    --border:#e6e9ee;
+    --text:#0b0f14;
+    --muted:#5b6675;
+    --muted2:#7a8794;
+
+    --fast1:#dbeafe;
+    --fast2:#c7dcfb;
+    --mid:#a9c8f1;
+    --long:#7eaee8;
+    --verylong:#4f8fe0;
+    --never:#e5e7eb;
+  }
+
+  *{ box-sizing:border-box; }
+
+  body{
+    margin:0;
+    background:var(--bg);
+    font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+    padding:14px;
+  }
+
+  .canvas{
+    width:1000px;
+    max-width:100%;
+    margin:auto;
+    background:#fff;
+    border-radius:18px;
+    padding:26px 24px 18px;
+  }
+
+  .kicker{
+    font-size:11px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--muted2);
+    margin-bottom:6px;
+  }
+
+  h1{
+    margin:0;
+    font-size:36px;
+    line-height:1.05;
+    letter-spacing:-0.03em;
+    color:var(--text);
+    max-width:840px;
+  }
+
+  .sub{
+    margin-top:8px;
+    font-size:16px;
+    color:var(--muted);
+    max-width:760px;
+    line-height:1.35;
+  }
+
+  .timelineWrap{
+    margin-top:20px;
+  }
+
+  .timelineLabels{
+    display:grid;
+    grid-template-columns:15fr 16fr 42fr 29fr;
+    gap:10px;
+    margin-bottom:8px;
+  }
+
+  .timelineLabel{
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--muted2);
+  }
+
+  .timeline{
+    display:grid;
+    grid-template-columns:6fr 9fr 16fr 20fr 22fr 32fr;
+    gap:10px;
+    align-items:stretch;
+  }
+
+  .step{
+    min-height:126px;
+    border-radius:14px;
+    padding:14px 12px;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
+    border:1px solid var(--border);
+  }
+
+  .s1{ background:var(--fast1); }
+  .s2{ background:var(--fast2); }
+  .s3{ background:var(--mid); }
+  .s4{ background:var(--long); }
+  .s5{ background:var(--verylong); color:#fff; border-color:#3f7fd1; }
+  .s6{ background:var(--never); }
+
+  .pct{
+    font-size:36px;
+    font-weight:900;
+    line-height:1;
+    color:inherit;
+    margin-bottom:8px;
+  }
+
+  .label{
+    font-size:15px;
+    font-weight:900;
+    line-height:1.12;
+    color:inherit;
+  }
+
+  .avgRow{
+    margin-top:14px;
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+    gap:10px;
+  }
+
+  .callout{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:14px 16px;
+  }
+
+  .badge{
+    display:inline-block;
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    background:#fff;
+    border:1px solid var(--border);
+    padding:5px 9px;
+    border-radius:999px;
+    margin-bottom:8px;
+  }
+
+  .bigStat{
+    font-size:42px;
+    font-weight:900;
+    line-height:1;
+    color:#2563eb;
+    margin-bottom:4px;
+  }
+
+  .calloutText{
+    font-size:15px;
+    line-height:1.3;
+    color:var(--text);
+  }
+
+  .footer{
+    margin-top:14px;
+    padding-top:8px;
+    border-top:1px solid var(--border);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+  }
+
+  .footnote{
+    font-size:12px;
+    color:var(--muted);
+  }
+
+  .logo{
+    height:36px;
+    width:auto;
+    display:block;
+  }
+
+  @media (max-width:900px){
+    .timelineLabels{
+      display:none;
+    }
+
+    .timeline{
+      grid-template-columns:1fr;
+    }
+
+    .step{
+      min-height:auto;
+      gap:8px;
+    }
+
+    .avgRow{
+      grid-template-columns:1fr;
+    }
+
+    h1{
+      font-size:31px;
+    }
+
+    .sub{
+      font-size:15px;
+    }
+
+    .bigStat{
+      font-size:36px;
+    }
+
+    .footer{
+      flex-direction:column;
+      align-items:flex-start;
+    }
+  }
+</style>
+</head>
+
+<body>
+<section class="canvas">
+
+  <div class="kicker">Lottery Behaviour Survey</div>
+
+  <h1>How Long Americans Think a $25M Jackpot Would Last</h1>
+  <p class="sub">Most say it would take years to spend a significant share of their winnings, if they spend it at all.</p>
+
+  <div class="timelineWrap">
+    <div class="timelineLabels">
+      <div class="timelineLabel">Fast</div>
+      <div class="timelineLabel">Medium</div>
+      <div class="timelineLabel">Long</div>
+      <div class="timelineLabel">Most common response</div>
+    </div>
+
+    <div class="timeline">
+      <div class="step s1">
+        <div class="pct">5%</div>
+        <div class="label">Under 6 months</div>
+      </div>
+
+      <div class="step s2">
+        <div class="pct">8%</div>
+        <div class="label">6 to 12 months</div>
+      </div>
+
+      <div class="step s3">
+        <div class="pct">16%</div>
+        <div class="label">1 to 3 years</div>
+      </div>
+
+      <div class="step s4">
+        <div class="pct">20%</div>
+        <div class="label">4 to 5 years</div>
+      </div>
+
+      <div class="step s5">
+        <div class="pct">22%</div>
+        <div class="label">More than 5 years</div>
+      </div>
+
+      <div class="step s6">
+        <div class="pct">29%</div>
+        <div class="label">Would not spend a significant portion</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="avgRow">
+    <div class="callout">
+      <div class="badge">Average</div>
+      <div class="bigStat">65.3 months</div>
+      <div class="calloutText">Americans estimate it would take just over 5 years to spend a significant share of a $25 million jackpot.</div>
+    </div>
+
+    <div class="callout">
+      <div class="badge">Top State</div>
+      <div class="calloutText"><strong>Ohio:</strong> 100.8 months average, the longest expected timeline in the country.</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footnote">
+      Source: Vegas Insider survey of 3,095 U.S. adults.
+    </div>
+    <img class="logo" src="https://i.postimg.cc/prTgCDdr/vegas-insider-logo.jpg" alt="Vegas Insider logo">
+  </div>
+
+</section>
+</body>
+</html>
